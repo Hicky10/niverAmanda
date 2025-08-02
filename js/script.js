@@ -31,36 +31,37 @@ $(document).ready(function () {
 
     // Função para trocar imagens
     async function trocarImagem() {
-        $('#imagemSequencial').fadeOut(500, () => {
-            if (indexImagem < imagens.length) {
-                $('#imagemSequencial')
-                    .attr('src', `img/Fotos/${imagens[indexImagem]}.jpg`)
-                    .fadeIn(500);
+        const proximaImagem = indexImagem < imagens.length
+            ? `img/Fotos/${imagens[indexImagem]}.jpg`
+            : 'img/Fotos/FIM.jpg';
 
-                // Remove o fundo confetti se estiver aplicado
-                $('#imgDiv').css('background-image', 'none');
+        const imagemAtual = $('#imagemSequencial').attr('src');
 
-                indexImagem++;
-            } else {
-                $('#imagemSequencial')
-                    .attr('src', 'img/Fotos/FIM.jpg')
-                    .fadeIn(500);
+        if (imagemAtual !== proximaImagem) {
+            $('#imagemSequencial').fadeOut(500, () => {
+                $('#imagemSequencial').attr('src', proximaImagem).fadeIn(500);
 
-                // Adiciona o fundo do confetti só uma vez e de forma permanente
-                $('.divImg').css({
-                    backgroundImage: "url('img/Conffetti.gif')",
-                    backgroundSize: "cover",
-                    backgroundRepeat: "repeat",
-                    backgroundPosition: "center center",
-                    position: "relative"
-                });
+                if (indexImagem < imagens.length) {
+                    // Remove o fundo confetti se estiver aplicado
+                    $('#imgDiv').css('background-image', 'none');
+                    indexImagem++;
+                } else {
+                    // Adiciona o fundo do confetti só uma vez e de forma permanente
+                    $('.divImg').css({
+                        backgroundImage: "url('img/Conffetti.gif')",
+                        backgroundSize: "cover",
+                        backgroundRepeat: "repeat",
+                        backgroundPosition: "center center",
+                        position: "relative"
+                    });
 
-                $('#mensagemFinal').fadeIn(1000);
-
-                clearInterval(intervaloSlideshow);
-            }
-        });
+                    $('#mensagemFinal').fadeIn(1000);
+                    clearInterval(intervaloSlideshow);
+                }
+            });
+        }
     }
+
 
 
     // Função principal para exibir mensagens

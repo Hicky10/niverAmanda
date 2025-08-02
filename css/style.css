@@ -1,0 +1,104 @@
+.fonte-diff {
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+body {
+    font-family: "Knewave", system-ui;
+    font-style: normal;
+}
+
+.text-rosa {
+    color: #c963db !important;
+}
+
+#fundoAnimado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    /* o dobro da tela para empilhar duas imagens */
+    background-image: url("../img/fundo.jpeg");
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    z-index: -1;
+    animation: scrollFundo 40s linear infinite;
+}
+
+@keyframes scrollFundo {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+        /* sobe metade da altura */
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.bg-light {
+    background-color: #eff3e5 !important;
+    color: #f89eb7 !important;
+}
+
+.btn-light {
+    background-color: #eff3e5 !important;
+    color: #f89eb7 !important;
+    border-color: #989B92 !important;
+}
+
+.texto-principal {
+    color: #eff3e5;
+    text-shadow: -1px -1px 0 #989b92, 1px -1px 0 #989b92, -1px 1px 0 #989b92, 1px 1px 0 #989b92;
+}
+
+#imgDiv {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+    max-height: 500px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    background-color: #1e1e2f00;
+    position: relative;
+}
+
+#imagemSequencial {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    margin: 0 auto;
+}
+
+#mensagemFinal {
+    display: none;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #eff3e5;
+    text-shadow: -1px -1px 0 #989b92, 1px -1px 0 #989b92, -1px 1px 0 #989b92, 1px 1px 0 #989b92;
+    font-weight: bold;
+}
+
+.divImg {
+    display: none;
+    background-color: #eff3e537;
+}
+
+.divMsg {
+    background-color: #eff3e537;
+}
+
